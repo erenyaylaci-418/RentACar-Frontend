@@ -1,0 +1,16 @@
+
+<tr> 
+    <th>Markalar</th>
+</tr>
+<div *ngIf = "dataLoaded ==false" class="text-center">
+    <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+  </div>
+<ul class="list-group">
+    <li *ngFor="let brand of brands" class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value={{brand.Id}} aria-label="...">
+      {{brand.brandName}}
+    </li>
+  </ul>

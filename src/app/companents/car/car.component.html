@@ -1,0 +1,26 @@
+<div *ngIf = "dataLoaded ==false" class="text-center">
+    <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+  </div>
+  <table *ngIf = "dataLoaded == true" class="table">
+  <thead>
+      <tr> 
+          <th>Id</th>
+          <th>Markası</th>
+          <th>Rengi</th>
+          <th>Modeli</th>
+          <th>Fiyatı</th>
+          <th>Detaylar</th>
+      </tr>
+  </thead>
+      <tr *ngFor = "let carDto of carsDtos">
+          <td>{{carDto.carId}}</td>
+          <td>{{carDto.brandName}}</td>
+          <td>{{carDto.colorName}}</td>
+          <td>{{carDto.modelYear}}</td>
+          <td>{{carDto.dailyPrice}}</td>
+          <td>{{carDto.description}}</td>
+      </tr>
+  </table>
