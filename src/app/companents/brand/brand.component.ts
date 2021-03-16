@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
-import { BrandResponseModel } from 'src/app/models/brand-response-model';
+import { ListResponseModel } from 'src/app/models/list-response-model';
 import { BrandService } from 'src/app/services/brand.service';
 
 
@@ -12,12 +12,13 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
 
   brands:Brand[] =[];
-  brandResponseModel: BrandResponseModel = {
+  brandResponseModel: ListResponseModel<Brand> = {
     data: this.brands,
     message: '',
     success: true,
   };
   dataLoaded = false;
+  currentBrand:Brand;
   constructor(private brandService:BrandService) { }
 
   ngOnInit(): void {
@@ -30,5 +31,21 @@ export class BrandComponent implements OnInit {
       this.brands = response.data;
       this.dataLoaded = true;
     });
+  }
+  setCurrentBrand(brand:Brand)
+  {
+    this.currentBrand = brand;
+  }
+  getCurrentBrandClass(brand:Brand)
+  {
+    if (brand == this.currentBrand) {
+      //console.log("eşit");
+      return 'list-group-item list-group-item-action active';
+    }
+    else
+    {
+      //console.log("eşit değil");
+      return 'list-group-item list-group-item-action';
+    }
   }
 }

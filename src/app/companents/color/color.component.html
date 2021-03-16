@@ -1,15 +1,25 @@
-<tr> 
-  <th>Renkler</th>
-</tr>
-<div *ngIf = "dataLoaded ==false" class="text-center">
-  <button class="btn btn-primary" type="button" disabled>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  Loading...
-</button>
-</div>
+
+
 <ul class="list-group">
-    <li *ngFor="let color of colors" class="list-group-item">
-      <input class="form-check-input me-1" type="checkbox" value={{color.Id}} aria-label="...">
+  <a></a>
+  <div class="card-header">
+    Renkler
+  </div>
+  <div *ngIf = "dataLoaded ==false" class="text-center">
+    <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+  </div>
+    <a
+    
+    (click)="setCurrentColor(color)"
+    routerLink="/cars/color/{{color.id}}"
+    *ngFor="let color of colors" [ngClass]="getCurrentColorClass(color)"
+    >
       {{color.colorName}}
-    </li>
+</a>
   </ul>
+  <h5 *ngIf="currentColor != null" class="text-center">
+    {{ currentColor.colorName}} seçtiniz.
+  </h5>

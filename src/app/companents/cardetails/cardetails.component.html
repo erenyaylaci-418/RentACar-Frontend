@@ -1,0 +1,29 @@
+<div class = "container">
+    <div class="row">
+        <div class="col-md-7">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div>
+                  <div class="carousel-item active" *ngFor="let image of carsImage">
+                    <img src="https://localhost:44358/api/carimage/getbyid?id={{image.id}}" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+              </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div *ngFor="let cardto of carsDtos">
+            <li class="list-group-item">MARKA: {{cardto.brandName}}</li>
+            <li class="list-group-item">RENGİ: {{cardto.colorName}}</li>
+            <li class="list-group-item">MODELİ: {{cardto.modelYear}}</li>
+            <li class="list-group-item">FİYAT: {{cardto.dailyPrice}}£ /Günlük</li>
+            <li class="list-group-item">AÇIKLAMA: {{cardto.description}}</li>
+        </div>
+    </div>
+    
+</div>
+
+</div>
+  
+    
+      
+ 

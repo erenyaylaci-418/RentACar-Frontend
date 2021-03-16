@@ -1,16 +1,18 @@
 
-<tr> 
-    <th>Markalar</th>
-</tr>
-<div *ngIf = "dataLoaded ==false" class="text-center">
+<div>
+  <a></a>
+  <div class="card-header">
+    Markalar
+  </div>
+  <div *ngIf = "dataLoaded ==false" class="text-center">
     <button class="btn btn-primary" type="button" disabled>
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
     Loading...
   </button>
   </div>
-<ul class="list-group">
-    <li *ngFor="let brand of brands" class="list-group-item">
-      <input class="form-check-input me-1" type="checkbox" value={{brand.Id}} aria-label="...">
-      {{brand.brandName}}
-    </li>
-  </ul>
+    <a (click) = "setCurrentBrand(brand)" *ngFor="let brand of brands" routerLink="/cars/brand/{{brand.id}}" [ngClass] = "getCurrentBrandClass(brand)">
+    {{brand.brandName}}
+  </a>
+  
+</div>
+<h5 *ngIf="currentBrand != null"  class="text-center">{{currentBrand.brandName}} Seçtiniz </h5>
