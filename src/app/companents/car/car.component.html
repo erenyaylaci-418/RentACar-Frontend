@@ -2,22 +2,40 @@
 <div>
     <h5 class="list-group item text-center">Arabalar</h5>
     <div class="list-group item">
+      <div class="col-md-6"></div>
         <div class="row">  
-            <div class="card" style="width: 18rem;" *ngFor = "let carDto of carsDtos">
-                <img src="https://iasbh.tmgrup.com.tr/73e48e/752/395/0/0/800/419?u=https://isbh.tmgrup.com.tr/sbh/2020/01/11/ruyada-araba-surmek-ne-anlama-gelir-ruyada-araba-surmek-ile-ilgili-yorum-1578690608054.jpg" class="card-img-top" alt="..."> 
+         
+          <div class="card ms-md-auto gy-5 shadow-lg p-3 mb-5 bg-transparent rounded" style="width: 18rem;" *ngFor = "let carDto of carsDtos">
+                <img src="https://localhost:44358/api/carimage/getbycarhomeid?id={{carDto.carId}}" class="card-img-top rounded float-start" alt="..."> 
                <div class="card-body list-group">
-                 <h6 class="list-group item text-center">{{carDto.brandName}}</h6>
-                 <h6 class="list-group item text-center">{{carDto.colorName}}</h6>
-                 <h6 class="list-group item text-center">{{carDto.modelYear}}</h6>
-                 <h6 class="list-group item text-center">{{carDto.dailyPrice}}£ /günlük</h6>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse" aria-expanded="false" aria-controls="flush-collapse">
+                        {{carDto.dailyPrice}}£ /günlük
+                      </button>
+                    </h2>
+                    <div id="flush-collapse" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <li class="list-group item text-center">{{carDto.brandName}}</li>
+                      <li class="list-group item text-center">{{carDto.colorName}}</li>
+                      <li class="list-group item text-center">{{carDto.modelYear}}</li>
+                    </div>
+                  </div>
+                 
                  <!-- <button>Uygun</button> -->
-                 <a routerLink="/cars/cardetailspage/{{carDto.carId}}" class="btn btn-primary">Detaylar</a>
+                 <div class="text-center">
+                   
+                    <a routerLink="/cars/cardetailspage/{{carDto.carId}}" class="btn btn-primary mw-100">Detaylar</a>
+                   </div>
+                  
+                 </div>
+                
                </div>
-               <a></a>
+             
+               
              </div>    
         </div>
         
     </div>
       
-</div>
 

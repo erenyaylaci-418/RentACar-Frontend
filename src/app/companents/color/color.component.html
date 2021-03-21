@@ -1,25 +1,43 @@
 
 
-<ul class="list-group">
-  <a></a>
-  <div class="card-header">
-    Renkler
+
+
+  <div class="accordion-item shadow-lg p-3 mb-5 bg-body rounded">
+    <h2 class="accordion-header " id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <fa-icon [icon]="coloricon"></fa-icon>-
+        Renkler
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <ul class="list-group">
+          <div *ngIf = "dataLoaded ==false" class="text-center">
+            <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
+          </div>
+          <div>
+            <div class="mb-3">
+            <label for="filterText" class="form-label"></label>
+            <input type="text" [(ngModel)] ="filterText" class="form-control" id="filterText" placeholder="arama ifadesi girin">
+          </div>
+        <div *ngIf="filterText.length>2" class="alert alert-success">
+            {{filterText}} aradınız
+        </div></div>  
+          
+          <a
+            
+            (click)="setCurrentColor(color)"
+            routerLink="/cars/color/{{color.id}}"
+            *ngFor="let color of colors" [ngClass]="getCurrentColorClass(color)"
+            >
+              {{color.colorName}}
+        </a>
+          </ul>
+          <h5 *ngIf="currentColor != null" class="text-center">
+            {{ currentColor.colorName}} seçtiniz.
+          </h5>
+    </div>
   </div>
-  <div *ngIf = "dataLoaded ==false" class="text-center">
-    <button class="btn btn-primary" type="button" disabled>
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...
-  </button>
-  </div>
-    <a
-    
-    (click)="setCurrentColor(color)"
-    routerLink="/cars/color/{{color.id}}"
-    *ngFor="let color of colors" [ngClass]="getCurrentColorClass(color)"
-    >
-      {{color.colorName}}
-</a>
-  </ul>
-  <h5 *ngIf="currentColor != null" class="text-center">
-    {{ currentColor.colorName}} seçtiniz.
-  </h5>

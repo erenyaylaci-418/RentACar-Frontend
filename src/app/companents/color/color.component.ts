@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faFillDrip } from '@fortawesome/free-solid-svg-icons';
 import { Color } from 'src/app/models/color';
 import { ListResponseModel } from 'src/app/models/list-response-model';
 import { ColorService } from 'src/app/services/color.service';
@@ -9,8 +10,9 @@ import { ColorService } from 'src/app/services/color.service';
   styleUrls: ['./color.component.css']
 })
 export class ColorComponent implements OnInit {
-  
+  coloricon = faFillDrip;
   colors:Color[]=[];
+  filterText="";
   colorResponseModule:ListResponseModel<Color>={
     data : this.colors,
     message:"",

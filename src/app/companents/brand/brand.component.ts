@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import { Brand } from 'src/app/models/brand';
 import { ListResponseModel } from 'src/app/models/list-response-model';
 import { BrandService } from 'src/app/services/brand.service';
@@ -10,8 +11,9 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand.component.css']
 })
 export class BrandComponent implements OnInit {
-
+  brandicon =faCopyright;
   brands:Brand[] =[];
+  filterText="";
   brandResponseModel: ListResponseModel<Brand> = {
     data: this.brands,
     message: '',

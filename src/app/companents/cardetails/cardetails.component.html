@@ -1,7 +1,7 @@
 <div class = "container">
     <div class="row">
-        <div class="col-md-7">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="col-md-7 ">
+            <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
                 <div>
                   <div class="carousel-item active" *ngFor="let image of carsImage">
                     <img src="https://localhost:44358/api/carimage/getbyid?id={{image.id}}" class="d-block w-100" alt="...">
@@ -10,14 +10,24 @@
               </div>
         </div>
         
-        <div class="col-md-3">
-            <div *ngFor="let cardto of carsDtos">
+        <div class="col-md-3 ">
+            <div *ngFor="let cardto of carsDtos" class="shadow-lg p-3 mb-5 bg-body rounded">
             <li class="list-group-item">MARKA: {{cardto.brandName}}</li>
             <li class="list-group-item">RENGİ: {{cardto.colorName}}</li>
             <li class="list-group-item">MODELİ: {{cardto.modelYear}}</li>
             <li class="list-group-item">FİYAT: {{cardto.dailyPrice}}£ /Günlük</li>
             <li class="list-group-item">AÇIKLAMA: {{cardto.description}}</li>
         </div>
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+          <label for="customRange2" class="form-label">Kiralamak istiyorsanız gün seçiniz.</label>
+          <input type="range" class="form-range" min="0" max="30" id="customRange2" [(ngModel)]="days">
+          <div class="d-grid gap-2  mx-auto" *ngIf="days>0">
+            <li class="list-group-item" >{{days}} gün</li>
+          <button type="button" class="btn btn-outline-success d-grid gap-2 col-6 mx-auto ">Kirala</button>
+          </div>
+          
+        </div>
+        
     </div>
     
 </div>

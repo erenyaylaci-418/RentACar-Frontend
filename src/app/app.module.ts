@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { NaviComponent } from './companents/navi/navi.component';
 import { BrandComponent } from './companents/brand/brand.component';
@@ -10,6 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { CarimageComponent } from './companents/carimage/carimage.component';
 import { CardetailsComponent } from './companents/cardetails/cardetails.component';
+import { HomeComponent } from './companents/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -19,13 +23,15 @@ import { CardetailsComponent } from './companents/cardetails/cardetails.componen
     ColorComponent,
     CarComponent,
     CarimageComponent,
-    CardetailsComponent
+    CardetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

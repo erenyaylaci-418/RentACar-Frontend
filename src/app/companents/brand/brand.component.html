@@ -1,18 +1,36 @@
 
-<div>
-  <a></a>
-  <div class="card-header">
-    Markalar
-  </div>
-  <div *ngIf = "dataLoaded ==false" class="text-center">
-    <button class="btn btn-primary" type="button" disabled>
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...
-  </button>
-  </div>
-    <a (click) = "setCurrentBrand(brand)" *ngFor="let brand of brands" routerLink="/cars/brand/{{brand.id}}" [ngClass] = "getCurrentBrandClass(brand)">
-    {{brand.brandName}}
-  </a>
+<div class="accordion " id="accordionExample">
+  <div class="accordion-item shadow-lg p-3 mb-5 bg-body rounded">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <fa-icon  [icon]="brandicon"></fa-icon>- 
+        Markalar
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div>
+          <div class="mb-3">
+          <label for="filterText" class="form-label"></label>
+          <input type="text" [(ngModel)] ="filterText" class="form-control" id="filterText" placeholder="arama ifadesi girin">
+        </div>
+      <div *ngIf="filterText.length>2" class="alert alert-success">
+          {{filterText}} aradınız
+      </div></div>
+        <div *ngIf = "dataLoaded ==false" class="text-center">
+          <button class="btn btn-primary" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Loading...
+        </button>
+        </div>
+          <a (click) = "setCurrentBrand(brand)" *ngFor="let brand of brands" routerLink="/cars/brand/{{brand.id}}" [ngClass] = "getCurrentBrandClass(brand)">
+          {{brand.brandName}}
+        </a>
+        
+      </div>
+      <h5 *ngIf="currentBrand != null"  class="text-center">{{currentBrand.brandName}} Seçtiniz </h5>
+      </div>
+      </div>
+      </div>
+    
   
-</div>
-<h5 *ngIf="currentBrand != null"  class="text-center">{{currentBrand.brandName}} Seçtiniz </h5>

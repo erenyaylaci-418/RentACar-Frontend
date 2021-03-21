@@ -1,14 +1,24 @@
-<div class = "container">
+<div class="">
+  <div class="position-relative  p-3 mb-5 rounded  ">
     <app-navi></app-navi>
-    <div class = "row">
-      <div class = "col-md-2"> 
-        <app-brand></app-brand> 
-        <app-color></app-color>
-      </div>
-      
-      <div class = "col-md-10">
-        <router-outlet></router-outlet>
-      </div>    
+    
+    <div class="position-absolute top-50 end-0 translate-middle-y">
+    </div>
+    
+  </div>
+  <div class = "container">
+     
+      <div class = "row">
+        <div class = "col-md-3"> 
+          <app-brand></app-brand> 
+          <app-color></app-color>
+        </div>
+        
+        <div class = "col-md-9">
+          <router-outlet></router-outlet>
+        </div>    
+    </div>
+    
   </div>
   
 </div>

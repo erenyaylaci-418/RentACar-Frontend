@@ -16,6 +16,7 @@ export class CardetailsComponent implements OnInit {
   constructor(private carDtoService:CarDtoService,private carimageService:CarImageService,private activatedRoute:ActivatedRoute) { }
   carsDtos:Cardto[]=[];
   carsImage:CarImage[] = [];
+  days:number;
   carDtoResponseModel:ListResponseModel<Cardto>={
     data:this.carsDtos,
     message:"",
@@ -51,6 +52,14 @@ export class CardetailsComponent implements OnInit {
       this.carsImage = response.data;
       this.imageLoaded=true;
     });
+  }
+  getcarimage(image:CarImage):string{
+    if (image=null) {
+      return "https://localhost:44358/api/carimage/getbycarhomeid?id=2003";
+    }
+    else{
+      return "https://localhost:44358/api/carimage/getbyid?id="+image.id;
+    }
   }
 
 }

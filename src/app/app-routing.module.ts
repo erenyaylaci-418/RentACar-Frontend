@@ -4,6 +4,7 @@ import { BrandComponent } from './companents/brand/brand.component';
 import { CarComponent } from './companents/car/car.component';
 import { CardetailsComponent } from './companents/cardetails/cardetails.component';
 import { CarimageComponent } from './companents/carimage/carimage.component';
+import { HomeComponent } from './companents/home/home.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CarComponent},
