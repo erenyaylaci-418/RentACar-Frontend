@@ -23,7 +23,7 @@
           Loading...
         </button>
         </div>
-          <a (click) = "setCurrentBrand(brand)" *ngFor="let brand of brands" routerLink="/cars/brand/{{brand.id}}" [ngClass] = "getCurrentBrandClass(brand)">
+          <a (click) = "setCurrentBrand(brand)" *ngFor="let brand of brands | brandSearch:filterText" routerLink="/cars/brand/{{brand.id}}" [ngClass] = "getCurrentBrandClass(brand)">
           {{brand.brandName}}
         </a>
         

@@ -31,7 +31,7 @@
             
             (click)="setCurrentColor(color)"
             routerLink="/cars/color/{{color.id}}"
-            *ngFor="let color of colors" [ngClass]="getCurrentColorClass(color)"
+            *ngFor="let color of colors | colorSearch:filterText" [ngClass]="getCurrentColorClass(color)"
             >
               {{color.colorName}}
         </a>
