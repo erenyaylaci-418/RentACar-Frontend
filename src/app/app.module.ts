@@ -6,18 +6,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
-import { NaviComponent } from './companents/navi/navi.component';
-import { BrandComponent } from './companents/brand/brand.component';
-import { ColorComponent } from './companents/color/color.component';
-import { CarComponent } from './companents/car/car.component';
+import { NaviComponent } from './companents/shared-page/navi/navi.component';
+import { BrandComponent } from './companents/basic-components/brand/brand.component';
+import { ColorComponent } from './companents/basic-components/color/color.component';
+import { CarComponent } from './companents/basic-components/car/car.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-import { CarimageComponent } from './companents/carimage/carimage.component';
-import { CardetailsComponent } from './companents/cardetails/cardetails.component';
-import { HomeComponent } from './companents/home/home.component';
-import { PayPageComponent } from './companents/pay-page/pay-page.component';
+import { CardetailsComponent } from './companents/pages/cardetails/cardetails.component';
+
+import { PayPageComponent } from './companents/pages/pay-page/pay-page.component';
 import { ColorSearchPipe } from './pipes/color-search.pipe';
 import { BrandSearchPipe } from './pipes/brand-search.pipe';
+import { HomeComponent } from './companents/pages/home/home.component';
+import { LoginPageComponent } from './companents/pages/login-page/login-page.component';
+import { RegisterPageComponent } from './companents/pages/register-page/register-page.component';
+import { AdminPageComponent } from './companents/pages/admin-page/admin-page.component';
+import { ColorAddComponent } from './companents/basic-components/color-add/color-add.component';
+import { BrandAddComponent } from './companents/basic-components/brand-add/brand-add.component';
+import { CarAddComponent } from './companents/basic-components/car-add/car-add.component';
+import { CarImageAddComponent } from './companents/basic-components/car-image-add/car-image-add.component';
+import { AddPageComponent } from './companents/pages/add-page/add-page.component';
 
 
 @NgModule({
@@ -27,12 +35,19 @@ import { BrandSearchPipe } from './pipes/brand-search.pipe';
     BrandComponent,
     ColorComponent,
     CarComponent,
-    CarimageComponent,
     CardetailsComponent,
     HomeComponent,
     PayPageComponent,
     ColorSearchPipe,
-    BrandSearchPipe
+    BrandSearchPipe,
+    LoginPageComponent,
+    RegisterPageComponent,
+    AdminPageComponent,
+    ColorAddComponent,
+    BrandAddComponent,
+    CarAddComponent,
+    CarImageAddComponent,
+    AddPageComponent
   ],
   imports: [
     BrowserModule,
